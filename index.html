@@ -1,46 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Harsh's Animation</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <svg id="star"></svg>
     <div class="background">
-        <img src="img/onlyMoon.png" class="moon">
-        <img src="img/forest.png" class="jungle">
+      <img src="img/onlyMoon.png" class="moon" />
+      <img src="img/forest.png" class="jungle" />
     </div>
 
-
     <script type="text/javascript">
-        function stars(){
-            let count = 500;
-            let background = document.querySelector('.background');
-            let i = 0;
-            while(i < count){
-                let star = document.createElement("i");
-                let x = Math.floor(Math.random() * window.innerWidth);
-                let y = Math.floor(Math.random() * window.innerHeight);
-                let size = Math.random() * 2;
-                let duration = Math.random() * 10;
+      setTimeout(stars, 100);
+      setTimeout(bg, 100);
 
-                star.style.left = x + 'px';
-                star.style.top = y + 'px';
-                star.style.width = 1 + size + 'px';
-                star.style.height = 1 + size + 'px';
-
-                star.style.animationDuration = 10 + duration + 's';
-                star.style.animationDelay = duration + 's';
-
-                background.appendChild(star);
-                i++;
-            }
+      function stars() {
+        let i = 0;
+        let j = 0;
+        for (var m = 0; m < 10; m++) {
+          var svg = document.getElementById("star");
+          let circle = document.createElementNS(
+            "http://www.w3.org/2000/svg",
+            "circle"
+          );
+          circle.setAttribute("cx", i);
+          circle.setAttribute("cy", j);
+          circle.setAttribute("r", 1);
+          circle.setAttribute("fill", "white");
+          circle.setAttribute("stroke", "skyblue");
+          svg.appendChild(circle);
+          i = Math.floor(Math.random() * window.innerWidth);
+          j = Math.floor(Math.random() * window.innerHeight);
         }
-        stars();
-    </script>
+      }
 
-    
-</body>
+      function bg() {
+        let count = 0;
+        var id = setInterval(animate, 40);
+        function animate() {
+          const svg = document.getElementById("star");
+          var rect = svg.getBoundingClientRect();
+          var x = rect.top;
+          x++;
+          document.getElementById("star").style.top = x;
+          if (count <= 8) {
+            stars();
+          }
+          if (x == 100) {
+            x--;
+            document.getElementById("star").style.top = 0;
+          }
+          count++;
+        }
+      }
+    </script>
+  </body>
 </html>
