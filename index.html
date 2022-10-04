@@ -9,8 +9,38 @@
 </head>
 <body>
     <div class="background">
-        <img src="img/editedmoon.jpg" class="moon">
-        <img src="img/forest1.jpg" class="jungle">
+        <img src="img/onlyMoon.png" class="moon">
+        <img src="img/forest.png" class="jungle">
     </div>
+
+
+    <script type="text/javascript">
+        function stars(){
+            let count = 500;
+            let background = document.querySelector('.background');
+            let i = 0;
+            while(i < count){
+                let star = document.createElement("i");
+                let x = Math.floor(Math.random() * window.innerWidth);
+                let y = Math.floor(Math.random() * window.innerHeight);
+                let size = Math.random() * 2;
+                let duration = Math.random() * 10;
+
+                star.style.left = x + 'px';
+                star.style.top = y + 'px';
+                star.style.width = 1 + size + 'px';
+                star.style.height = 1 + size + 'px';
+
+                star.style.animationDuration = 10 + duration + 's';
+                star.style.animationDelay = duration + 's';
+
+                background.appendChild(star);
+                i++;
+            }
+        }
+        stars();
+    </script>
+
+    
 </body>
 </html>
