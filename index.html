@@ -13,8 +13,8 @@
       <div>
         <button type="button" class="button" onclick="dayNight()">SWITCH</button>
       </div>
-      <img src="img/onlyMoon.png" class="moon" />
-      <img src="img/forest.png" class="jungle" />
+      <img src="img/onlyMoon.png" class="moon" id="sun"/>
+      <img src="img/landscape.png" class="jungle" />
     </div>
 
     <script type="text/javascript">
@@ -76,6 +76,24 @@
           isNight = true;
         }
       }
+    </script>
+
+    <script>
+      var image_tracker = 'white';
+      function change(){
+        var image = document.getElementById('sun');
+        if(isNight==false){
+          if(image_tracker=='white'){
+          image.src= 'img/sun1.png';
+          image_tracker='yellow';
+        }
+        else{
+          image.src='img/sun.png';
+          image_tracker='white';
+        }
+        }
+      }
+      var timer = setInterval('change();',1);
     </script>
   </body>
 </html>
