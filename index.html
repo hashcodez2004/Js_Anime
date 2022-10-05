@@ -1,4 +1,4 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -11,9 +11,12 @@
     <svg id="star"></svg>
     <div class="background">
       <div>
-        <button type="button" class="button" onclick="dayNight()">SWITCH</button>
+        <button type="button" class="button" onclick="dayNight()">
+          SWITCH
+        </button>
       </div>
-      <img src="img/onlyMoon.png" class="moon" id="sun"/>
+      <img src="img/bird.png" class="bird" />
+      <img src="img/onlyMoon.png" class="moon" id="sun" />
       <img src="img/landscape.png" class="jungle" />
     </div>
 
@@ -79,21 +82,42 @@
     </script>
 
     <script>
-      var image_tracker = 'white';
-      function change(){
-        var image = document.getElementById('sun');
-        if(isNight==false){
-          if(image_tracker=='white'){
-          image.src= 'img/sun1.png';
-          image_tracker='yellow';
-        }
-        else{
-          image.src='img/sun.png';
-          image_tracker='white';
-        }
+      var image_tracker = "white";
+      function change() {
+        var image = document.getElementById("sun");
+        if (isNight == false) {
+          if (image_tracker == "white") {
+            image.src = "img/sun1.png";
+            image_tracker = "yellow";
+          } else {
+            image.src = "img/sun.png";
+            image_tracker = "white";
+          }
         }
       }
-      var timer = setInterval('change();',1);
+      var timer = setInterval("change();", 10);
+    </script>
+
+    <script>
+      let bird = document.querySelector('.bird');
+      let moveBy = 10;
+
+      window.addEventListener('load', () =>{
+        bird.style.position = 'absolute';
+        bird.style.left = 0;
+        bird.style.top = 0;
+      });
+
+      window.addEventListener('keyup', (e) => {
+        switch(e.key){
+          case 'ArrowLeft' :
+            bird.style.left = parseInt(bird.style.left) - moveBy + 'px';
+            break;
+          case 'ArrowRight' :
+            bird.style.left = parseInt(bird.style.left) + moveBy + 'px';
+            break;
+        }
+      });
     </script>
   </body>
 </html>
