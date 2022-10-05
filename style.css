@@ -8,10 +8,10 @@
 
 
   .cloud1 {
-    width: 17.578%;
-    top: 5.722%;
-    left: 16.927%;
-
+    width: 20%;
+    top: 7%;
+    left: 16%;
+    position: absolute;
 }
   
   .background {

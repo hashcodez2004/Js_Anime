@@ -65,7 +65,7 @@ function change() {
       image.src = "img/sun1.png";
       image_tracker = "yellow";
     } else {
-      image.src = "img/sun.png";
+      image.src = "img/sun2.png";
       image_tracker = "white";
     }
   }
@@ -83,10 +83,10 @@ window.addEventListener("load", () => {
 
 window.addEventListener("keyup", (e) => {
   switch (e.key) {
-    case "ArrowLeft":
+    case 'ArrowLeft':
       bird.style.left = parseInt(bird.style.left) - moveBy + "px";
       break;
-    case "ArrowRight":
+    case 'ArrowRight':
       bird.style.left = parseInt(bird.style.left) + moveBy + "px";
       break;
   }
@@ -98,4 +98,6 @@ let coverBy = 10;
 setInterval(function (){
     posX = posX + coverBy;
     cloud1.style.left = posX + "px";
+    if(posX>1600)posX=0;
 }, 100);
+
